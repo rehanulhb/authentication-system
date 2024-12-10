@@ -4,7 +4,7 @@ import { useContext } from "react";
 
 const Register = () => {
 
-  const {createuser} = useContext(AuthContext)
+  const {createUser} = useContext(AuthContext)
   
 
     const handleRegister = e =>{
@@ -15,7 +15,7 @@ const Register = () => {
         console.log(name, email, password)
 
 
-        createuser(email, password)
+        createUser(email, password)
         .then(result => {
           console.log(result.user)
         })
