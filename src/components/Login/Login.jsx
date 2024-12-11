@@ -1,10 +1,11 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 
 const Login = () => {
 
   const {signInUser} = useContext(AuthContext)
+  const navigate = useNavigate()
 
     const handleLogin = e =>{
 
@@ -18,6 +19,8 @@ const Login = () => {
         signInUser(email, password)
         .then(result=>{
           console.log(result.user)
+          e.target.reset();
+          navigate('/')
         })
         .catch(error => console.error(error))
 
@@ -68,6 +71,7 @@ const Login = () => {
             </div>
           </form>
           <p className="ml-4">New to Authentication? Please <Link to="/register"><button className="btn btn-link">Please Register</button></Link></p>
+          
         </div>
       </div>
     </div>
